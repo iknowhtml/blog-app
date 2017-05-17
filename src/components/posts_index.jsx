@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import fetchPosts from '../actions/postsActionCreator';
 
-const PostsIndex = () => (
-  <div>
-    Posts Index
-  </div>
-);
+class PostsIndex extends Component {
+  componentDidMount() {
+    this.props.fetchPosts();
+  }
 
-export default PostsIndex;
+  render() {
+    return (
+      <div>
+        Posts Index
+      </div>
+    );
+  }
+}
+
+PostsIndex.propTypes = {
+  fetchPosts: PropTypes.func.isRequired,
+};
+
+export default connect(null, { fetchPosts })(PostsIndex);
