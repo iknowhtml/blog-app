@@ -1,10 +1,9 @@
 module.exports = {
   extends: 'airbnb',
-  plugins: [
-    'react',
-    'jsx-a11y',
-    'import',
-  ],
+  rules: {
+    'react/forbid-prop-types': [1, { forbid: ['any'] }],
+  },
+  plugins: ['react', 'jsx-a11y', 'import'],
   env: {
     browser: true,
     node: true,
