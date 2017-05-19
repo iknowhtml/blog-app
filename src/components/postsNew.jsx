@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 import { createPost } from '../actions/postsActionCreator';
 
 class PostsNew extends Component {
-  renderField(field) {
+
+  static renderField(field) {
     const { meta: { touched, error } } = field;
     const className = `form-group ${touched && error ? 'has-danger' : ''}`;
     return (
       <div className={className}>
-        <label>{field.label}</label>
+        <label htmlFor={className}>{field.label}</label>
         <input className="form-control" type="text" {...field.input} />
         <div className="text-help">
           {field.meta.touched ? field.meta.error : ''}
@@ -26,7 +27,7 @@ class PostsNew extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form onSubmit={() => handleSubmit(this.onSubmit)}>
         <Field label="Title" name="title" component={this.renderField} />
         <Field label="Categories" name="categories" component={this.renderField} />
         <Field label="Content" name="content" component={this.renderField} />
