@@ -9,7 +9,18 @@ class PostsShow extends Component {
   }
 
   render() {
-    return <div>Post!</div>;
+    const { post } = this.props;
+
+    if (!post) {
+      return <div>...loading</div>;
+    }
+    return (
+      <div>
+        <h3>{post.title}</h3>
+        <h6>Categories: {post.categories}</h6>
+        <p>{post.content}</p>
+      </div>
+    );
   }
 }
 
