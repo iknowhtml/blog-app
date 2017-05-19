@@ -5,8 +5,15 @@ import { connect } from 'react-redux';
 import { createPost } from '../actions/postsActionCreator';
 
 class PostsNew extends Component {
+  constructor() {
+    super();
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  onSubmit(value) {
+    this.props.createPost(value, () => this.props.history.push('/'));
+  }
 
-  static renderField(field) {
+  renderField(field) {
     const { meta: { touched, error } } = field;
     const className = `form-group ${touched && error ? 'has-danger' : ''}`;
     return (
@@ -20,14 +27,10 @@ class PostsNew extends Component {
     );
   }
 
-  onSubmit(value) {
-    this.props.createPost(value, () => this.props.history.push('/'));
-  }
-
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={() => handleSubmit(this.onSubmit)}>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
         <Field label="Title" name="title" component={this.renderField} />
         <Field label="Categories" name="categories" component={this.renderField} />
         <Field label="Content" name="content" component={this.renderField} />
