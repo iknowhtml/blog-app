@@ -7,7 +7,7 @@ export default function (state = {}, action) {
       return _.mapKeys(action.payload.data, 'id');
 
     case CREATE_POST:
-      return;
+      return state;
 
     default:
       return state;
