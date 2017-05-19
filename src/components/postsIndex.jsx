@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import fetchPosts from '../actions/postsActionCreator';
+import { fetchPosts } from '../actions/postsActionCreator';
 
 class PostsIndex extends Component {
   componentDidMount() {
