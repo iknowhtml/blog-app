@@ -5,6 +5,13 @@
     <title>Blog App</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/48938155eb24b4ccdde09426066869504c6dab3c/dist/css/bootstrap.min.css">
+    <script>
+      const l = window.location;
+      if (l.search) {
+        const url = l.href.replace('?', '');
+        window.history.replaceState(null, null, url);
+      }
+    </script>
   </head>
   <body>
     <div class="container"></div>
