@@ -11,13 +11,17 @@ import PostsShow from './components/postsShow';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
+const l = window.location;
+let root = l.pathname.split('/')[0];
+root = root ? `/${root}` : '';
+
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/posts/new" component={PostsNew} />
-          <Route path="/posts/:id" component={PostsShow} />
+          <Route path={`${root}/posts/new`} component={PostsNew} />
+          <Route path={`${root}/posts/:id`} component={PostsShow} />
           <Route path="/" component={PostsIndex} />
         </Switch>
       </div>
