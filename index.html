@@ -9,7 +9,7 @@
       const n = l.hostname == 'localhost' ? 0 : (l.pathname ? 1 : 0);
 
       const bundle = document.createElement('script');
-      bundle.src = l.hostname == 'localhost' ? '/bundle.js' : (l.pathname > 1 ? `/${l.pathname.split('/')[1]}/bundle.js` : `/${l.pathname.split('/')[0]}/bundle.js`);
+      bundle.src = l.hostname == 'localhost' ? '/bundle.js' : `${l.location.href}/bundle.js`;
       document.getElementsByTagName('html')[0].appendChild(bundle);
 
       const style = document.createElement('link');
