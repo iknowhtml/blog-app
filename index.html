@@ -8,7 +8,7 @@
     <script>
       const l = window.location;
       if (l.search) {
-        const url = `/${l.href.replace('?', '')}`;
+        const url = `/${l.pathname.replace('?', '')}`;
         window.history.replaceState(null, null, url);
       }
     </script>
