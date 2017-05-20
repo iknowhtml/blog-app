@@ -18,10 +18,12 @@ class PostsIndex extends Component {
   }
 
   render() {
+    let root = window.location.pathname.split('/')[1];
+    root = root ? `/${root}` : '';
     return (
       <div>
         <div className="text-xs-right">
-          <Link className="btn btn-primary" to="/posts/new">
+          <Link className="btn btn-primary" to={`${root}/posts/new`}>
             Add a Posts
           </Link>
         </div>
