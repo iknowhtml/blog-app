@@ -11,7 +11,7 @@ class PostsNew extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
   onSubmit(value) {
-    this.props.createPost(value, () => this.props.history.push(`/${root}`));
+    this.props.createPost(value, () => this.props.history.push(`${root}`));
   }
 
   renderField(field) {
