@@ -8,7 +8,7 @@
     const paths = l.pathname.split('/');
     const root = l.origin + paths.splice(0, n + 1)[n];
     const route = paths.join('/');
-    l.replace(`/${root}?p=${route}`);
+    l.replace(`${root}/?p=${route}`);
 </script>
 </head>
 <body>
