@@ -10,7 +10,7 @@
 
       const bundle = document.createElement('script');
       console.log(`${l.href.split('?')[0]}/bundle.js`);
-      bundle.src = l.hostname == 'localhost' ? '/bundle.js' : `${l.href.split('?')[0]}/bundle.js`;
+      bundle.src = l.hostname == 'localhost' ? '/bundle.js' : `${l.href.split('?')[0]}bundle.js`;
       document.getElementsByTagName('html')[0].appendChild(bundle);
 
       const style = document.createElement('link');
