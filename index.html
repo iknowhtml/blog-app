@@ -8,7 +8,8 @@
     <script>
       const l = window.location;
       if (l.search) {
-        const url = `/${l.pathname.replace('?', '')}`;
+        const url = `${l.pathname$}{l.search.replace('?', '')}`;
+        console.log(url);
         window.history.replaceState(null, null, url);
       }
     </script>
