@@ -20,6 +20,7 @@ class PostsIndex extends Component {
   render() {
     let root = window.location.pathname.split('/')[1];
     root = root ? `/${root}` : '';
+    console.log(`${root}/posts/new`);
     return (
       <div>
         <div className="text-xs-right">
