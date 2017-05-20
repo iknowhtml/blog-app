@@ -9,8 +9,8 @@
       const n = l.hostname == 'localhost' ? 0 : (l.pathname ? 1 : 0);
 
       const bundle = document.createElement('script');
-      console.log(`${l.href}/bundle.js`);
-      bundle.src = l.hostname == 'localhost' ? '/bundle.js' : `${l.href}/bundle.js`;
+      console.log(`${l.href.split('?')[0]}/bundle.js`);
+      bundle.src = l.hostname == 'localhost' ? '/bundle.js' : `${l.href.split('?')[0]}/bundle.js`;
       document.getElementsByTagName('html')[0].appendChild(bundle);
 
       const style = document.createElement('link');
