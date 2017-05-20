@@ -7,7 +7,8 @@
       // n specifies whether this is github account page (0) or project page (1)
       const l = window.location;
       const n = l.hostname == 'localhost' ? 0 : (l.pathname ? 1 : 0);
-
+      console.log(l.pathname);
+      
       const bundle = document.createElement('script');
       bundle.src = `${l.pathname.split('/')[n]}/bundle.js`;
       document.getElementsByTagName('html')[0].appendChild(bundle);
@@ -16,6 +17,7 @@
       style.rel = 'stylesheet';
       style.href = `${l.pathname.split('/')[n]}/style.css`;
       document.getElementsByTagName('head')[0].appendChild(style);
+
       if (l.search) {
         const url = `${l.pathname}${l.search.replace('?', '')}`;
         window.history.replaceState(null, null, url);
