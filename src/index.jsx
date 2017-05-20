@@ -8,11 +8,9 @@ import reducers from './reducers/reducers';
 import PostsIndex from './components/postsIndex';
 import PostsNew from './components/postsNew';
 import PostsShow from './components/postsShow';
+import root from './helper/root_resolver';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
-
-let root = window.location.pathname.split('/')[1];
-root = root ? `/${root}` : '';
 
 console.log(`${root}/posts/new`);
 

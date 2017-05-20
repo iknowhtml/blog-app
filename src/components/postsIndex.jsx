@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPosts } from '../actions/postsActionCreator';
+import root from '../helper/root_resolver';
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -18,9 +19,6 @@ class PostsIndex extends Component {
   }
 
   render() {
-    let root = window.location.pathname.split('/')[1];
-    root = root ? `/${root}` : '';
-    console.log(`${root}/posts/new`);
     return (
       <div>
         <div className="text-xs-right">
