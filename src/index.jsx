@@ -12,8 +12,6 @@ import root from './helper/root_resolver';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
-console.log(`${root}/posts/new`);
-
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
