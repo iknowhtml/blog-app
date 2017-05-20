@@ -9,13 +9,12 @@
       const n = l.hostname == 'localhost' ? 0 : (l.pathname ? 1 : 0);
 
       const bundle = document.createElement('script');
-      console.log(`${l.href.split('?')[0]}/bundle.js`);
       bundle.src = l.hostname == 'localhost' ? '/bundle.js' : `${l.href.split('?')[0]}bundle.js`;
       document.getElementsByTagName('html')[0].appendChild(bundle);
 
       const style = document.createElement('link');
       style.rel = 'stylesheet';
-      style.href = `${l.pathname.split('/')[n]}/style.css`;
+      style.href = l.hostname == 'localhost' ? '/style.css' : `${l.href.split('?')[0]}style.css`;
       document.getElementsByTagName('head')[0].appendChild(style);
 
       if (l.search) {
