@@ -7,8 +7,8 @@
       // n specifies whether this is github account page (0) or project page (1)
       const l = window.location;
       const n = l.hostname == 'localhost' ? 0 : (l.pathname ? 1 : 0);
-      console.log(l.pathname);
-      
+      console.log(l.pathname.split('/'));
+
       const bundle = document.createElement('script');
       bundle.src = `${l.pathname.split('/')[n]}/bundle.js`;
       document.getElementsByTagName('html')[0].appendChild(bundle);
