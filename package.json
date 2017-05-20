@@ -7,7 +7,7 @@
   "repository": "https://github.com/iknowhtml/blog-app.git",
   "scripts": {
     "start": "webpack-dev-server --progress --inline --env.prod=0 --env.is_gh_project=1",
-    "build": "webpack -p"
+    "build": "webpack -p  --inline --env.prod=1 --env.is_gh_project=1"
   },
   "author": "",
   "license": "ISC",
