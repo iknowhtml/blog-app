@@ -4,14 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog App</title>
     <script>
+      // n specifies whether this is github account page (0) or project page (1)
+      const n = 1;
       const l = window.location;
       const bundle = document.createElement('script');
-      bundle.src = `${l.pathname.split('/')[0]}/bundle.js`;
+      bundle.src = `${l.pathname.split('/')[n]}/bundle.js`;
       document.getElementsByTagName('html')[0].appendChild(bundle);
 
       const style = document.createElement('link');
       style.rel = 'stylesheet';
-      style.href = `${l.pathname.split('/')[0]}/style.css`;
+      style.href = `${l.pathname.split('/')[n]}/style.css`;
       document.getElementsByTagName('head')[0].appendChild(style);
 
       if (l.search) {
