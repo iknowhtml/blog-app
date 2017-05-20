@@ -11,10 +11,8 @@ import PostsShow from './components/postsShow';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
-const l = window.location;
-let root = l.pathname.split('/')[0];
+let root = window.location.pathname.split('/')[1];
 root = root ? `/${root}` : '';
-
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
