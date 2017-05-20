@@ -1,36 +1,47 @@
-module.exports = {
-  entry: './src/index.jsx',
+const webpack = require('webpack');
 
-  output: {
-    path: __dirname,
-    filename: 'bundle.js',
-  },
+module.exports = function (env) {
+  return {
+    entry: './src/index.jsx',
 
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015'],
-          plugins: ['transform-class-properties'],
-        },
-      },
+    output: {
+      path: __dirname,
+      filename: 'bundle.js',
+    },
+
+    plugins: [
+      new webpack.DefinePlugin({
+        IS_GITHUB_PROJECT: env.is_gh_project,
+        IS_PROD: env.prod,
+      }),
     ],
-  },
 
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
+    module: {
+      loaders: [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel',
+          query: {
+            presets: ['react', 'es2015'],
+            plugins: ['transform-class-properties'],
+          },
+        },
+      ],
+    },
 
-  resolveLoader: {
-    moduleExtensions: ['-loader'],
-  },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
 
-  devServer: {
-    contentBase: './',
-    historyApiFallback: true,
-    port: 8080,
-  },
+    resolveLoader: {
+      moduleExtensions: ['-loader'],
+    },
+
+    devServer: {
+      contentBase: './',
+      historyApiFallback: true,
+      port: 8080,
+    },
+  };
 };

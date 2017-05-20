@@ -1,3 +1,3 @@
-const root = window.location.pathname.split('/')[1] ? `/${window.location.pathname.split('/')[1]}` : '';
-console.log(window.location.pathname);
+
+const root = IS_PROD && IS_GITHUB_PROJECT ? `/${window.location.pathname.split('/')[1]}` : '';
 export default root;
