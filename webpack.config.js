@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 
-module.exports = function (env) {
+module.exports = function webpackConfig(env) {
   return {
     entry: './src/index.jsx',
 

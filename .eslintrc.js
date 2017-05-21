@@ -9,7 +9,6 @@ module.exports = {
     'react/forbid-prop-types': [1, { forbid: ['any'] }],
     'react/prop-types': 0,
     'class-methods-use-this': [1, { exceptMethods: ['renderField'] }],
-    'func-names': ['error', 'as-needed'],
   },
   plugins: ['react', 'jsx-a11y', 'import', 'eslint-plugin-html'],
   env: {
