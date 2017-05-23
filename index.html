@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog App</title>
+    <script>
+    // n specifies whether this is github account page (0) or project page (1)
+    const l = window.location;
+
+    const bundle = document.createElement('script');
+
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+
+    if (l.hostname === 'localhost') {
+      bundle.src = '/bundle.js';
+      style.href = '/style.css';
+    } else {
+      bundle.src = `${l.href.split('?')[0]}bundle.js`;
+      style.href = `${l.href.split('?')[0]}style.css`;
+    }
+
+    document.getElementsByTagName('html')[0].appendChild(bundle);
+    document.getElementsByTagName('head')[0].appendChild(style);
+
+    if (l.search) {
+      const url = `${l.pathname}${l.search.replace('?', '')}`;
+      window.history.replaceState(null, null, url);
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/48938155eb24b4ccdde09426066869504c6dab3c/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+</html>
